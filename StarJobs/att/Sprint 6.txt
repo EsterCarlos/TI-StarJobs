@@ -1,0 +1,3 @@
+Grupo: Ester, José Ribeiro, Lara e Maisa. 
+
+Criado uma tabela nova no banco de dados, para inclusão e cadastro. Para conseguir aprovar é preciso passar para outra tabela no banco. A remoção de vagas e edição foi feita num arquivo php separado. 

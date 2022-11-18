@@ -1,0 +1,3 @@
+Grupo: Ester, José Ribeiro, Lara e Maisa. 
+
+Cadastro de empresa feito com uma nova tabela no banco, após cadastrar a empresa é enviado para a fatec analisar a empresa, foi feito também arquivos separados em php para definir as alterações.
