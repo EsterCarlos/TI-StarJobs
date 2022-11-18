@@ -28,14 +28,14 @@
         <div class="loginEstudante" >
 
             <h3 style="color: #000000; text-align: center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">PREENCHA ABAIXO PARA FAZER LOGIN NO SITE</h3>
-            
+            <form action="processoLoginEstudante.php" method="POST">
             <h4 style="color: #000000; text-align: center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">ESTUDANTE</h4>
 
             <label style="color: #000000;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 10%;">Email:</label>
             
             <br>
 
-            <input type="text" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" placeholder="">
+            <input name="email" type="text" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" placeholder="">
 
             <br>
             <br>
@@ -44,18 +44,31 @@
             
             <br>
 
-            <input type="password" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" >
+            <input name="senha" type="password" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" >
             
             <br>
             <br>
             <br>
             <br>
             
-            <a href="estudanteInicial.php" class="botao-verde" style="font-size: 1.5em;margin-left: 38%;">LOGAR</a>
-
+            <input name="enviar" href="estudanteInicial.php" class="botao-verde" type="submit" style="font-size: 1.5em;margin-left: 38%;" value="LOGAR">
+            </form>
         </div>
 
     </div>
+
+    <?php
+    if(isset($_REQUEST["err"]))
+	$msg="Invalid username or Password";
+    ?>
+    <p style="color:red;">
+    <?php if(isset($msg))
+    {
+	
+    echo "<script>alert('$msg');</script>";
+
+    }
+    ?>
 
     <script src="footer.js"></script>
     

@@ -1,34 +1,28 @@
 document.write(`
-<div style="color: white; height: 110px; padding: 0 20%; background-color: #ef2922;">
+<div style="color: white; height: 110px; padding: 0 20%; background-color: #81182d;">
     <a href="index.html">
-        <img src="" alt="Logo Star Jobs" height="100px" style="padding-top: 5px; float: left;">
+        <img src="logoStarJobs.png" alt="Logo Star Jobs" height="160px" width="160px"  style=" float: left;">
     </a>
 
-    <div style="float: right; height: 100%; padding: 40px 0; ">
-        <a href="#" class="botao-azul" id="myBtn" style="font-size: 1.5em; margin-right: 10px; ">CADASTRAR</a>
-        <a href="#" class="botao-verde" id="myBtn2" style="font-size: 1.5em;">LOGAR</a>
+    <div class="botoes"  style="float: right; height: 100%; padding: 40px 0; ">
+    <nav>
+        <ul class="menu">
+            <li><a href="#" class="botao-azul" style="font-size: 1.5em; margin-right: 30px; ">CADASTRAR</a>
+                <ul>
+                    <li> <a href="estudanteCadastro.html" class="" style="font-size: 1.5em;">ESTUDANTE</a></li>
+                    <li> <a href="empresaCadastro.html" class="" style="font-size: 1.5em;">EMPRESA</a> </li>
+                </ul></li>
+            <li><a href="#" class="botao-verde" style="font-size: 1.5em;">LOGAR</a>
+                <ul>
+                    <li> <a href="estudanteLogar.php" class="" style="font-size: 1.5em; ">ESTUDANTE</a> </li>
+                    <li> <a href="empresaLogar.php" class="" style="font-size: 1.5em;">EMPRESA</a> </li>  
+                    <li> <a href="escolaLogar.php" class="" style="font-size: 1.5em; ">FATEC</a> </li>  
+                </ul></li>
+        </ul>
+    </nav>
+
     </div>
 
 </div>
 
-    <!--Modal escolher cadastro -->
-    <div id="myModal" class="modal">
-        <div class="modal-content" style="text-align:center; padding-top: 40px;padding-bottom: 40px;">
-            <span class="close">&times;</span>
-            <a href="estudanteCadastro.html" class="botao-azul" id="myBtn"
-                style="font-size: 1.5em; margin-right: 10px;">ESTUDANTE</a>
-            <a href="empresaCadastro.html" class="botao-amarelo" style="font-size: 1.5em;">EMPRESA</a>
-        </div>
-    </div>
-
-    <!--Modal escolher Logar -->
-    <div id="myModal2" class="modal2">
-        <div class="modal-content2" style="text-align:center; padding-top: 40px;padding-bottom: 40px;">
-            <span class="close2">&times;</span>
-            <a href="estudanteLogar.html" class="botao-azul" id="myBtn2"
-                style="font-size: 1.5em; margin-right: 10px;">ESTUDANTE</a>
-            <a href="empresaLogar.html" class="botao-amarelo" style="font-size: 1.5em;">EMPRESA</a>
-            <a href="escolaLogar.html" class="botao-vermelho" style="font-size: 1.5em; margin-left: 10px;">FATEC</a>
-        </div>
-    </div>
 `);

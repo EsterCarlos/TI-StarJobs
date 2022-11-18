@@ -5,12 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Star Jobs - Empresa Perfil</title>
+    <title>StarJobs - Empresa Perfil</title>
 
     <link href="style.css" rel="stylesheet">
 </head>
 
 <body style="margin: 0">
+
+<?php
+session_start ();
+if(!isset($_SESSION["login"])){
+    header("location:empresaLogin.php");
+}
+    include ('conexao.php');
+    $id = $_SESSION["login"];
+
+?>
 
     <script src="navbarEmp.js"></script>
 
@@ -84,17 +94,61 @@
 
     </div>
 
-    <div style="background-color: #999999;display: flex;height: 280px;justify-content: space-between;padding: 1% 8% ">
+    <?php  
+                
+                $sql = "SELECT ID_vaga, Conteudo from vaga_aprov where ID_empresa = '$id'"; 
+                $result = $mysqli->query($sql);
 
-        <script src="cardVagaHorizontalEmpresa.js"></script>
-        <script src="cardVagaHorizontalEmpresa.js"></script>
-        
-    </div>
+                $sql2 = $mysqli->query("SELECT Id_vaga from vaga_aprov where ID_empresa = '$id'");
+                $result2= mysqli_fetch_array($sql2);
 
-    <div style= "background-color: #999999;display: flex;height: 280px;justify-content: space-between; padding: 0 8%;">
+                
+                $_SESSION['idVaga'] = intval($result2[0]);
 
-        <script src="cardVagaHorizontalEmpresa.js"></script>
-        <script src="cardVagaHorizontalEmpresa.js"></script>
+
+                    function custom_echo($x, $length)
+                    {
+                        if(strlen($x)<=$length)
+                        {
+                            echo $x;
+                        }
+                        else
+                        {
+                            $y=substr($x,0,$length) . '...';
+                            echo $y;
+                        }
+                    }
+   
+            ?>
+
+    <div style="background-color: #999999;display: flex;height: adjust;padding: 1% 8% ">
+
+            <div style="margin-right: 10px ; width: 100%;background-color: white; box-shadow: 1px 1px 4px #555555; border-radius: 25px; float: top; padding: 10px 20px; margin: 10px">
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                        <th>
+                        </th>
+                        </tr>
+                    </thead>
+                    <?php  while ($row = $result->fetch_assoc()){ ?>
+                        <tr>
+                            
+                            <td> <?php custom_echo($row['Conteudo'], 200); ?></td>
+                            <td> <a class="botao-verde" href="vagaDetalhesEmpVisu.php?visu=<?php echo $row['ID_vaga']?>" >Visualizar</a>
+                                 <a class="botao-azul" href="ajustarPagina.php?editar=<?php echo $row['ID_vaga']; ?>">Editar</a>  
+                                 <a class="botao-vermelho" href="processarDelete.php?delete=<?php echo $row['ID_vaga']; ?>">Deletar</a>
+                                 
+                            </td>
+                            
+                        </tr>
+                        <?php  } ?>
+                </table>
+               
+                </div>
+                <br>
+            </div>
 
         
     </div>

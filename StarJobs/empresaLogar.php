@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trivagas - Estudante Logar</title>
+    <title>StarJobs - Empresa Logar</title>
 
     <link href="style.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
 
     <script src="navbar.js "></script>
 
-    <div class="background-azul" style="height: 100px;">
+    <div  style="height: 100px;">
 
         <br>
         <br>
@@ -23,19 +23,20 @@
 
     </div>
 
-    <div style="height: 490px;">
+    <div style="height: 500px;">
     
-        <div class="loginEstudante" >
+        <div class="loginEmpresa">
 
-            <h3 style="color: #000000; text-align: center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">PREENCHA ABAIXO PARA FAZER LOGIN NO SITE</h3>
+            <h3 style="color: #000000; text-align: center;">PREENCHA ABAIXO PARA FAZER LOGIN NO SITE</h3>
             
-            <h4 style="color: #000000; text-align: center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">ESTUDANTE</h4>
+            <form action="processoLoginEmpresa.php" method="POST">
+            <h4 style="color: #000000; text-align: center;">EMPRESA</h4>
 
             <label style="color: #000000;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 10%;">Email:</label>
             
             <br>
 
-            <input type="text" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" placeholder="">
+            <input name="email" type="text" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" placeholder="">
 
             <br>
             <br>
@@ -44,18 +45,30 @@
             
             <br>
 
-            <input type="password" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" >
+            <input name="senha" type="password" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" >
             
             <br>
             <br>
             <br>
-            <br>
             
-            <a href="estudanteInicial.php" class="botao-verde" style="font-size: 1.5em;margin-left: 38%;">LOGAR</a>
-
+            <input name="enviar" type="submit" class="botao-verde" style="font-size: 1.5em;margin-left: 38%;" value="LOGAR">
+            </form>
         </div>
 
     </div>
+
+    <?php
+    if(isset($_REQUEST["err"]))
+	$msg="Usuário invalido ou senha";
+    ?>
+    <p style="color:red;">
+    <?php if(isset($msg))
+    {
+	
+    echo "<script>alert('$msg');</script>";
+
+    }
+    ?>
 
     <script src="footer.js"></script>
     

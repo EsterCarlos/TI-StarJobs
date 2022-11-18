@@ -33,11 +33,13 @@
 
             <h4 style="color: #000000; text-align: center;">FATEC</h4>
 
+            <form action="processoLoginFatec.php" method="POST">
+
             <label style="color: #000000;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-left: 10%;">Usuário:</label>
             
             <br>
 
-            <input type="text" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" placeholder="">
+            <input type="text" name="login" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" placeholder="">
 
             <br>
             <br>
@@ -46,17 +48,32 @@
             
             <br>
 
-            <input type="password" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" >
+            <input type="password" name="senha" class="input-text" style="margin-top: 5px;margin-left: 10%; width: 70%;" >
             
             <br>
             <br>
             <br>
             
-            <a href="empresaPerfil.html" class="botao-verde" style="font-size: 1.5em;margin-left: 38%;">LOGAR</a>
+            <input type="submit" name="enviar" class="botao-verde" style="font-size: 1.5em;margin-left: 38%;" value="LOGAR">
+
+            </form>
 
         </div>
 
     </div>
+
+    <?php
+    if(isset($_REQUEST["err"]))
+	$msg="Usuário invalido ou senha";
+    ?>
+    <p style="color:red;">
+    <?php if(isset($msg))
+    {
+	
+    echo "<script>alert('$msg');</script>";
+
+    }
+    ?>
     
     <script src="footer.js "></script>
 
